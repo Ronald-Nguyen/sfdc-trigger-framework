@@ -53,15 +53,15 @@ def count_lines_in_file(filepath):
         # Normalize path separators for the OS
         normalized_path = os.path.normpath(filepath)
         if not os.path.exists(normalized_path):
-            return "File Not Found"
+            return 0 # Return 0 so we can sum safely
             
         with open(normalized_path, 'r', encoding='utf-8', errors='replace') as f:
             return sum(1 for _ in f)
     except Exception:
-        return "Error Reading File"
+        return 0
 
 def parse_and_summarize(report_file="pmd-report.xml", output_file="complexity-summary.txt"):
-    """Parses the XML report, counts lines, and generates a text summary."""
+    """Parses the XML report, counts lines, and generates a text summary with totals."""
     if not os.path.exists(report_file):
         print(f"Error: {report_file} not found.")
         return
@@ -74,6 +74,10 @@ def parse_and_summarize(report_file="pmd-report.xml", output_file="complexity-su
     
     # Dictionary to store data: filename -> {complexity, loc}
     file_data = {}
+    
+    # Grand totals
+    grand_total_complexity = 0
+    grand_total_loc = 0
 
     # Regex to extract the complexity number
     complexity_pattern = re.compile(r"cognitive complexity of (\d+)")
@@ -81,22 +85,26 @@ def parse_and_summarize(report_file="pmd-report.xml", output_file="complexity-su
     for file_elem in root.findall('pmd:file', ns):
         filename = file_elem.get('name')
         
-        # 1. Calculate Complexity
-        total_complexity = 0
+        # 1. Calculate File Complexity
+        file_complexity = 0
         for violation in file_elem.findall('pmd:violation', ns):
             rule = violation.get('rule')
             if rule == 'CognitiveComplexity':
                 message = violation.text.strip() if violation.text else ""
                 match = complexity_pattern.search(message)
                 if match:
-                    total_complexity += int(match.group(1))
+                    file_complexity += int(match.group(1))
         
-        # 2. Count Lines of Code (LOC)
-        loc = count_lines_in_file(filename)
+        # 2. Count File LOC
+        file_loc = count_lines_in_file(filename)
+
+        # Update totals
+        grand_total_complexity += file_complexity
+        grand_total_loc += file_loc
 
         file_data[filename] = {
-            "complexity": total_complexity,
-            "loc": loc
+            "complexity": file_complexity,
+            "loc": file_loc
         }
 
     # Write the summary text file
@@ -109,6 +117,9 @@ def parse_and_summarize(report_file="pmd-report.xml", output_file="complexity-su
         for filename in sorted(file_data.keys()):
             data = file_data[filename]
             f.write(f"{filename:<60} | {data['complexity']:<12} | {data['loc']}\n")
+            
+        f.write("-" * 95 + "\n")
+        f.write(f"{'GRAND TOTAL':<60} | {grand_total_complexity:<12} | {grand_total_loc}\n")
             
     print(f"Summary generated at {output_file}")
 
