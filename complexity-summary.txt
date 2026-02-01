@@ -1,5 +1,6 @@
 Project Structure & Complexity Report
 =====================================
-
-.\src\classes\TriggerHandler.cls: [Total Complexity: 35]
-.\src\classes\TriggerHandler_Test.cls: [Total Complexity: 6]
+File Path                                                    | Complexity   | Lines of Code
+-----------------------------------------------------------------------------------------------
+.\src\classes\TriggerHandler.cls                             | 35           | 240
+.\src\classes\TriggerHandler_Test.cls                        | 6            | 277
