@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.21.0" timestamp="2026-02-01T23:35:20.155">
+<file name=".\src\classes\TriggerHandler.cls">
+<violation beginline="31" endline="63" begincolumn="10" endcolumn="4" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'run()' has a cognitive complexity of 2, current threshold is 1
+</violation>
+<violation beginline="65" endline="72" begincolumn="10" endcolumn="4" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'setMaxLoopCount(Integer)' has a cognitive complexity of 2, current threshold is 1
+</violation>
+<violation beginline="103" endline="105" begincolumn="11" endcolumn="4" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'setTriggerContext()' has a cognitive complexity of 1, current threshold is 1
+</violation>
+<violation beginline="108" endline="138" begincolumn="11" endcolumn="4" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'setTriggerContext(String, Boolean)' has a cognitive complexity of 24, current threshold is 1
+</violation>
+<violation beginline="142" endline="151" begincolumn="11" endcolumn="4" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'addToLoopCount()' has a cognitive complexity of 3, current threshold is 1
+</violation>
+<violation beginline="155" endline="160" begincolumn="11" endcolumn="4" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'validateRun()' has a cognitive complexity of 2, current threshold is 1
+</violation>
+<violation beginline="212" endline="214" begincolumn="12" endcolumn="6" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'exceeded()' has a cognitive complexity of 1, current threshold is 1
+</violation>
+</file>
+<file name=".\src\classes\TriggerHandler_Test.cls">
+<violation beginline="72" endline="81" begincolumn="10" endcolumn="4" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'testNonTriggerContext()' has a cognitive complexity of 2, current threshold is 1
+</violation>
+<violation beginline="121" endline="160" begincolumn="10" endcolumn="4" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://docs.pmd-code.org/snapshot/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'testLoopCount()' has a cognitive complexity of 4, current threshold is 1
+</violation>
+</file>
+</pmd>

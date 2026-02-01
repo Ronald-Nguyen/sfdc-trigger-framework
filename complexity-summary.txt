@@ -1,0 +1,5 @@
+Project Structure & Complexity Report
+=====================================
+
+.\src\classes\TriggerHandler.cls: [Total Complexity: 35]
+.\src\classes\TriggerHandler_Test.cls: [Total Complexity: 6]
